@@ -1,0 +1,86 @@
+{
+  "intents": [
+    {
+      "intent": "PlayMove",
+      "slots": [
+        {
+          "name": "Piece",
+          "type": "LIST_OF_PIECES"
+        },
+        {
+          "name": "File",
+          "type": "LIST_OF_FILES"
+        },
+        {
+          "name": "Rank",
+          "type": "LIST_OF_RANKS"
+        },
+        {
+            "name": "Action",
+            "type": "LIST_OF_ACTIONS"
+        }
+      ]
+    },
+	{
+      "intent": "PlayMoveSpecifyFile",
+      "slots": [
+        {
+          "name": "Piece",
+          "type": "LIST_OF_PIECES"
+        },
+        {
+          "name": "File",
+          "type": "LIST_OF_FILES"
+        },
+        {
+          "name": "Rank",
+          "type": "LIST_OF_RANKS"
+        },
+        {
+          "name": "SourceFile",
+          "type": "LIST_OF_FILES"
+        }
+      ]
+    },
+	{
+      "intent": "PlayMoveSpecifySquare",
+      "slots": [
+        {
+          "name": "Piece",
+          "type": "LIST_OF_PIECES"
+        },
+        {
+          "name": "File",
+          "type": "LIST_OF_FILES"
+        },
+        {
+          "name": "Rank",
+          "type": "LIST_OF_RANKS"
+        },
+        {
+          "name": "SourceFile",
+          "type": "LIST_OF_FILES"
+        },
+        {
+          "name": "SourceRank",
+          "type": "LIST_OF_RANKS"
+        }
+      ]
+    },
+    {
+      "intent": "PlayCastle",
+      "slots": [
+        {
+          "name": "Castle",
+          "type": "LIST_OF_CASTLES"
+        }
+      ]
+    },
+    {
+      "intent": "RequestDraw"
+    },
+    {
+      "intent": "RequestResign"
+    }
+  ]
+}

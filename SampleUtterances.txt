@@ -1,0 +1,36 @@
+# Piece moves
+PlayMove {Piece} {Action} {File} {Rank}
+PlayMove play {Piece} {Action} {File} {Rank}
+PlayMove {Piece} {File} {Rank}
+
+# Pawn moves
+PlayMove {File} {Rank}
+PlayMove play {File} {Rank}
+PlayMove {SourceFile} {Action} {File} {Rank}
+PlayMove play {SourceFile} {Action} {File} {Rank}
+
+# Piece hard moves
+PlayMoveSpecifyFile {Piece} {SourceFile} {File} {Rank}
+PlayMoveSpecifyFile play {Piece} {SourceFile} {File} {Rank}
+PlayMoveSpecifyFile {Piece} {SourceFile} {Action} {File} {Rank}
+PlayMoveSpecifyFile play {Piece} {SourceFile} {Action} {File} {Rank}
+
+# Piece extra hard moves
+PlayMoveSpecifySquare {Piece} {SourceFile} {SourceRank} {File} {Rank}
+PlayMoveSpecifySquare play {Piece} {SourceFile} {SourceRank} {File} {Rank}
+PlayMoveSpecifySquare {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
+PlayMoveSpecifySquare play {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
+
+# Pawn promotions
+PlayMove {File} promotes to {Promotion}
+PlayMove play {File} promotes to {Promotion}
+PlayMove {File} {Action} {File} {Rank} promotes to {Promotion}
+PlayMove play {File} {Action} {File} {Rank} promotes to {Promotion}
+
+PlayCastle play {Castle}
+PlayCastle {Castle}
+
+RequestDraw draw
+RequestDraw would you like a draw
+
+RequestResign I resign

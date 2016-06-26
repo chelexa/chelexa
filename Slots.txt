@@ -1,0 +1,45 @@
+LIST_OF_CASTLES
+castle short
+castle long
+castle king side
+castle queen side
+castles short
+castles long
+castles king side
+castles queen side
+
+LIST_OF_FILES
+a
+b
+c
+d
+e
+f
+g
+h
+
+LIST_OF_RANKS
+1
+2
+3
+4
+5
+6
+7
+8
+
+LIST_OF_PIECES
+rook
+bishop
+knight
+queen
+king
+pawn
+
+
+LIST_OF_ACTIONS
+to
+takes
+captures
+takes on
+captures on
