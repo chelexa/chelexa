@@ -42,7 +42,7 @@ AlexaSkill.prototype.eventHandlers = {
    onIntent: function (intentRequest, session, response) {
      var intent = intentRequest.intent,
       intentName = intentRequest.intent.name,
-      intentHandler = this.intentHandler[intentName];
+      intentHandler = this.intentHandlers[intentName];
     if (intentHandler) {
       console.log('dispath intent = ' + intentName);
       intentHandler.call(this, intent, session, response);
@@ -158,8 +158,9 @@ Response.prototype = (function () {
         cardContent: cardContent,
         shouldEndSession: false
       }));
-    }
-  };
+    };
+  }
 })();
 
+console.log('exporting AlexaSkill object -- AlexaSkill.js');
 module.exports = AlexaSkill;
