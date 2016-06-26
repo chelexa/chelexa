@@ -56,7 +56,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     action = map.actionsMap[action];
 
     // formatting our response
-    move = piece + sourceFile + sourceRank + action + file + rank
+    move = piece + sourceFile + sourceRank + action + file + rank;
 
     storage.loadGame(session, function (currentGame) {
       if ( versusAI ) {
