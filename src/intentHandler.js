@@ -78,5 +78,4 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
       });
     }
   }
-
 }
