@@ -17,7 +17,17 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
   intentHandlers.PlayMove = function (intent, session, response) {
 
+  };
 
+  intentHandlers.PlayMoveSpecifyFile = function (intent, session, response) {
+
+  };
+
+  intentHandlers.PlayMoveSpecifySquare = function (intent, session, response) {
+
+  };
+
+  intentHandlers.PlayCastle = function (intent, session, response) {
 
   };
 
