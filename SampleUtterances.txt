@@ -35,3 +35,7 @@ RequestDraw draw
 RequestDraw would you like a draw
 
 RequestResign I resign
+
+StartChess chess
+StartChess play chess
+StartChess start chess
