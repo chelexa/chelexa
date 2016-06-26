@@ -7,6 +7,7 @@ chessMap.pieceMap = {
   "queen" : "Q",
   "king" : "K",
   "pawn" : ""
+  "" : ""
 };
 
 
@@ -17,6 +18,7 @@ chessMap.actionsMap = {
   "takes on" : "x",
   "captures on" : "x",
   //Null takes care of value null :)
+  "" : ""
   "null" : ""
 };
 

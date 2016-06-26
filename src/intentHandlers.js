@@ -39,7 +39,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
   function PlayMoveSquare (intent, session, response) {
     //give a player points, ask additional question if slot values are missing.
-    var piece = intent.slots.Piece.value,
+    var piece = intent.slots.Piece.value == undefined ? "" : intents.slots.Piece.value,
         file = intent.slots.File.value,
         rank = intent.slots.Rank.value,
         sourceFile = intent.slots.SourceFile.value == undefined ? "" : intents.slots.SourceFile.value,
@@ -47,7 +47,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         action = intent.slots.Action.value == undefined ? "" : intents.slots.Action.value,
         move;
 
-        console.log(map.pieceMap);
+    console.log(map.pieceMap);
 
     if (map.pieceMap[piece] !== null) {
         piece = map.pieceMap[piece];
