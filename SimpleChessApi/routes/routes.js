@@ -90,6 +90,8 @@ var appRouter = function(app) {
 	    	callback = function(move){
                 var status = pos.move(move, {sloppy: true});
 	    		res.send({"status": status !== null ? "success" : "error", "fen": pos.fen(), "move": move});
+                got_uci = false;
+                started_thinking = false;
 	    	}
 	    }
 	});
