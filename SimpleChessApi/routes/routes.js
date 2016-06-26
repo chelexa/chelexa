@@ -82,6 +82,7 @@ var appRouter = function(app) {
 	    } else {
             var pos = new Chess(req.query.fen);
             //var pos = new FEN.parse(req.query.fen);
+            console.log("User's move: " + req.query.fen);
             pos.move(req.query.move);
 	    	position = "fen " + pos.fen();
 
