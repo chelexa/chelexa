@@ -48,9 +48,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         sourceFile = intent.slots.SourceFile.value,
         sourceRank = intent.slots.SourceRank.value,
         action = intent.slots.Action.value,
-        move,
-        response,
-        responseMessage;
+        move;
 
     if (map.pieceMap[piece] !== null) {
         piece = map.pieceMap[piece];
@@ -63,25 +61,23 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     if ( versusAI ) {
       //TODO: fill this shit out
-      $.get( chessServer + "/move?", { fen: "rnbqkbnr/ppp2ppp/4p3/3p4/2B5/4P3/PPPP1PPP/RNBQK1NR w KQkq d6 0 3", move: "Be2"}, function( data ) {
+      $.get( chessServer + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
         alert( data );
+        if (data.status !== "error"){
+            currentGame.data.fen = data.fen;
+            currentGame.data.lastMove = data.move;
+            storage.save( function () {
+              //TODO: maybe indicate color of next move here
+              response.ask('computer move ' + data.move);
+            });
+        } else {
+          //handle error
+          response.ask('sorry, not a valid move, please choose again');
+          return;
+        }
       });
-      response = // TODO - Call Tyler here
-      responseMessage = // TODO - AI Move
     } else {
-      response = // TODO - Call Tyler here
-      responseMessage = 'next move';
-    }
-
-    if (response /* ERROR */ ) {
-      response.ask('sorry, not a valid move, please choose again');
-    } else {
-      currentGame.data.fen = //TODO: Response fen
-      storage.save( function () {
-        //TODO: maybe indicate color of next move here
-        response.ask(responseMessage);
-      });
+      //response = // TODO - Call Tyler here
     }
   }
-
 }
