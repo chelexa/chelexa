@@ -1,7 +1,8 @@
 'use strict';
 var textHelper = require('./textHelper'),
     storage = require('./storage'),
-    map = require('./chessMap');
+    map = require('./chessMap'),
+    require('./jQuery.js');
 
 var versusAI = true;
 
