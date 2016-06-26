@@ -18,7 +18,8 @@ var storage = (function () {
             this.data = data;
         } else {
             this.data = {
-                fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+                fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+                lastMove: ''
             };
         }
         this._session = session;
@@ -30,13 +31,13 @@ var storage = (function () {
             //so next time we can save a read from dynamoDB
             this._session.attributes.currentGame = this.data;
             dynamodb.putItem({
-                "TableName": TableName,
-                "Item": {
-                    "CustomerId": {
-                        "S": this._session.user.userId
+                TableName: TableName,
+                Item: {
+                    CustomerId: {
+                        S: this._session.user.userId
                     },
-                    "Data": {
-                        "S": JSON.stringify(this.data)
+                    Data: {
+                        S: JSON.stringify(this.data)
                     }
                 }
             }, function (err, data) {
@@ -58,10 +59,10 @@ var storage = (function () {
                 return;
             }
             dynamodb.getItem({
-                "TableName": TableName,
-                "Key": {
-                    "CustomerId": {
-                        "S": session.user.userId
+                TableName: TableName,
+                Key: {
+                    CustomerId: {
+                        S: session.user.userId
                     }
                 }
             }, function (err, data) {
