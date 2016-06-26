@@ -19,6 +19,7 @@ AlexaSkill.prototype.requestHandlers = {
 
   SessionEndRequest: function (event, context) {
     this.eventHandlers.onSessionEnd(event.request, event.session);
+    context.succeed();
   }
 };
 
@@ -42,12 +43,12 @@ AlexaSkill.prototype.eventHandlers = {
      var intent = intentRequest.intent,
       intentName = intentRequest.intent.name,
       intentHandler = this.intentHandlers[intentName];
-    if (intentHandler) {
-      console.log('dispath intent = ' + intentName);
-      intentHandler.call(this, intent, session, response);
-    } else {
-      throw 'Unsupported intent = ' + intentName;
-    }
+      if (intentHandler) {
+        console.log('dispath intent = ' + intentName);
+        intentHandler.call(this, intent, session, response);
+      } else {
+        throw 'Unsupported intent = ' + intentName;
+      }
   },
 
   onSessionEnd: function (SessionEndRequest, session) {
