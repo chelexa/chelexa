@@ -3,6 +3,8 @@ var textHelper = require('./textHelper'),
     storage = require('./storage'),
     map = require('./chessMap');
 
+var chessServer = "54.152.13.83";
+
 var versusAI = true;
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
@@ -61,6 +63,9 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     if ( versusAI ) {
       //TODO: fill this shit out
+      $.get( chessServer + "/move?", { fen: "rnbqkbnr/ppp2ppp/4p3/3p4/2B5/4P3/PPPP1PPP/RNBQK1NR w KQkq d6 0 3", move: "Be2"}, function( data ) {
+        alert( data );
+      });
       response = // TODO - Call Tyler here
       responseMessage = // TODO - AI Move
     } else {
