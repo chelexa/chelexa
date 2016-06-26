@@ -2,11 +2,12 @@
 var AlexaSkill = require('./AlexaSkill'),
     eventHandlers = require('./eventHandlers'),
     intentHandlers = require('./intentHandlers');
-    
+
+var APP_ID ="amzn1.echo-sdk-ams.app.c26442ad-8950-4ad3-8587-7d91bc2330a4";
 var skillContext = {};
 
 var Chelexa = function() {
-    AlexaSkill.call(this);
+    AlexaSkill.call(this, APP_ID);
     skillContext.needMoreHelp = true;
 };
 

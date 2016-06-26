@@ -1,10 +1,10 @@
 'use strict';
-var textHelper = require('./textHelper'),
-    storage = require('./storage'),
+var storage = require('./storage'),
     map = require('./chessMap'),
-    require('./jQuery.js');
+    require('./jQuery');
 
-var chessServer = "54.152.13.83";
+var chessServer = "54.152.13.83",
+    chessPort = 8000;
 
 var versusAI = true;
 
@@ -62,8 +62,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     if ( versusAI ) {
       //TODO: fill this shit out
-      $.get( chessServer + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
-        alert( data );
+      $.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
+        console.log( data );
         if (data.status !== "error"){
             currentGame.data.fen = data.fen;
             currentGame.data.lastMove = data.move;
@@ -80,5 +80,6 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     } else {
       //response = // TODO - Call Tyler here
     }
-  }
-}
+  };
+};
+exports.register = registerIntentHandlers;

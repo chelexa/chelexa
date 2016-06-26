@@ -1,6 +1,7 @@
 'use strict'
 
-function AlexaSkill() {
+function AlexaSkill(appId) {
+  this._appId = appId;
 };
 
 AlexaSkill.speechOutputType = {
