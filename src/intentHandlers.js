@@ -8,6 +8,7 @@ var chessServer = "54.152.13.83",
 
 var versusAI = true;
 
+
 var registerIntentHandlers = function (intentHandlers, skillContext) {
   intentHandlers.PlayMove = function (intent, session, response) {
     intent.slots.SourceFile = '';
@@ -15,12 +16,19 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     PlayMoveSquare(intent, session, response);
   };
 
+  //on launch
+  intentHandlers.StartChess = function (intent, session, response ) {
+    storage.loadGame(session, function(currentGame) {
+      response.ask('Welcome to chess, your move', 'please choose your move');
+    });
+  };
+
   intentHandlers.PlayMoveSpecifyFile = function (intent, session, response) {
     intent.slots.SourceRank = '';
     PlayMoveSpecifySquare(intent, session, response);
   };
 
-  intentHandlers.PlayMoveSpecifySquare = function (intent, session, response) {
+  intentHandlers.PlayMoveSpecifyRank = function (intent, session, response) {
     intent.slots.SourceFile = '';
     PlayMoveSquare(intent, session, response);
   };
@@ -74,11 +82,11 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
               currentGame.data.lastMove = data.move;
               storage.save( function () {
                 //TODO: maybe indicate color of next move here
-                response.ask('computer move ' + data.move);
+                response.ask('computer move ' + data.move, "next move please");
               });
             } else {
               //handle error
-              response.ask('sorry, not a valid move, please choose again');
+              response.ask('sorry, not a valid move, please choose again', 'sorry, not a valid move, please choose again');
               return;
             }
           });
