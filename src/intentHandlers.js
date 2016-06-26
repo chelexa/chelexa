@@ -9,18 +9,6 @@ var chessServer = "54.152.13.83",
 var versusAI = true;
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
-  intentHandlers.NewGameIntent = function (intent, session, response) {
-    //starting a new game
-    storage.loadGame(session, function (currentGame) {
-      if (currentGame.data.players.length === 0) {
-        response.ask('New game started. You are the white player.');
-        return;
-      }
-      //Start the game with no moves saved
-      currentGame.data = '';
-    });
-  };
-
   intentHandlers.PlayMove = function (intent, session, response) {
     intent.slots.SourceFile = '';
     intent.slots.SourceRank = '';
