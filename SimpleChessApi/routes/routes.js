@@ -10,10 +10,10 @@ var callback;
 
 function send(str)
 {
-    console.log("Sending: " + str)
+    //console.log("Sending: " + str)
     engine.postMessage(str);
     if (str === "stop"){
-    	console.log(best_move);
+    	console.log("Best move: " + best_move);
     }
 }
 
