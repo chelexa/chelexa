@@ -1,7 +1,7 @@
 'use strict';
 var storage = require('./storage'),
     map = require('./chessMap'),
-    jquery = require('./jQuery');
+    http = require('http');
 
 var chessServer = "54.152.13.83",
     chessPort = 8000;
@@ -53,8 +53,25 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     storage.loadGame(session, function (currentGame) {
       if ( versusAI ) {
         //TODO: fill this shit out
-        jquery.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
-          console.log( data );
+        http.get( {
+          host: chessServer + ":" + chessPort,
+          path: "/move?fen=" + currentGame.data.fen + "&move=" + move
+        }, function( response ) {
+          console.log( response );
+          var str = '';
+          var data = '';
+          //another chunk of data has been recieved, so append it to `str`
+          response.on('data', function (chunk) {
+            str += chunk;
+          });
+
+          //the whole response has been recieved, so we just print it out here
+          response.on('end', function () {
+            console.log(str);
+            // Data reception is done, do whatever with it!
+            data = JSON.parse(str);
+          });
+
           if (data.status !== "error"){
               currentGame.data.fen = data.fen;
               currentGame.data.lastMove = data.move;
