@@ -10,17 +10,14 @@ var callback;
 
 function send(str)
 {
-    console.log("Sending: " + str)
+    //console.log("Sending: " + str)
     engine.postMessage(str);
-    if (str === "stop"){
-    	console.log(best_move);
-    }
 }
 
 engine.onmessage = function (line)
 {
     var match;
-    console.log("Line: " + line)
+    //console.log("Line: " + line)
     
     if (typeof line !== "string") {
         console.log("Got line:");
@@ -44,12 +41,14 @@ engine.onmessage = function (line)
         setTimeout(function ()
         {
             send("stop");
-        }, 1000 * 5);
+        }, 1000 * 1);
     } else if (line.indexOf("bestmove") > -1) {
         match = line.match(/bestmove\s+(\S+)/);
         if (match) {
-            console.log("Best move: " + match[1]);
+            //console.log("Best move: " + match[1]);
             best_move = match[1];
+            console.log("Best move " + best_move);
+            console.log(typeof best_move)
             callback(best_move);
             //process.exit();
         }
@@ -89,7 +88,8 @@ var appRouter = function(app) {
 	    	send("uci");
 	    	callback = function(move){
                 var status = pos.move(move, {sloppy: true});
-	    		res.send({"status": status !== null ? "success" : "error", "fen": pos.fen(), "move": move});
+
+	    		res.send({"status": status !== null ? "success" : "error", "fen": pos.fen(), "move": status.san});
                 got_uci = false;
                 started_thinking = false;
 	    	}
