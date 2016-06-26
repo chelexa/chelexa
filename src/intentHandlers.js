@@ -12,24 +12,24 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
   intentHandlers.PlayMove = function (intent, session, response) {
     intent.slots.SourceFile = '';
     intent.slots.SourceRank = '';
-    this.PlayMoveSquare(intent, session, response);
+    PlayMoveSquare(intent, session, response);
   };
 
   intentHandlers.PlayMoveSpecifyFile = function (intent, session, response) {
     intent.slots.SourceRank = '';
-    this.PlayMoveSpecifySquare(intent, session, response);
+    PlayMoveSpecifySquare(intent, session, response);
   };
 
   intentHandlers.PlayMoveSpecifySquare = function (intent, session, response) {
     intent.slots.SourceFile = '';
-    this.PlayMoveSquare(intent, session, response);
+    PlayMoveSquare(intent, session, response);
   };
 
   intentHandlers.PlayCastle = function (intent, session, response) {
 
   };
 
-  intentHandlers.PlayMoveSquare = function (intent, session, response) {
+  function PlayMoveSquare (intent, session, response) {
     //give a player points, ask additional question if slot values are missing.
     var piece = intent.slots.Piece.value,
         file = intent.slots.File.value,

@@ -1,7 +1,6 @@
 'use strict'
 
-function AlexaSkill(appId) {
-  this._appId = appId;
+function AlexaSkill() {
 };
 
 AlexaSkill.speechOutputType = {
@@ -158,9 +157,8 @@ Response.prototype = (function () {
         cardContent: cardContent,
         shouldEndSession: false
       }));
-    };
+    }
   }
 })();
 
-console.log('exporting AlexaSkill object -- AlexaSkill.js');
 module.exports = AlexaSkill;
