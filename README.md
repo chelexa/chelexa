@@ -6,7 +6,7 @@ Natural voice recognition IoT cloud chess solution via the Amazon Echo platform
 - [x] Config
 - [ ] Alexa.js
 - [ ] Chess.js
-- [ ] Stockfish.js
+- [x] Stockfish.js
 - [ ] GitHub
-   - [ ] Readme.md
+   - [x] Readme.md
    - [ ] Register team

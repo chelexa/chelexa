@@ -47,7 +47,7 @@
       ]
     },
 	{
-      "intent": "PlayMoveSpecifySquare",
+      "intent": "PlayMoveSpecifyRank",
       "slots": [
         {
           "name": "Piece",
@@ -60,10 +60,6 @@
         {
           "name": "Rank",
           "type": "LIST_OF_RANKS"
-        },
-        {
-          "name": "SourceFile",
-          "type": "LIST_OF_FILES"
         },
         {
           "name": "SourceRank",
