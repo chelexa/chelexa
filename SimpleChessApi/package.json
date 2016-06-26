@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "chesslib": "0.9.10",
+    "stockfish": "6.0.5"
   }
 }
