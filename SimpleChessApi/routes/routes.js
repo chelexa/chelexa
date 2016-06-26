@@ -20,7 +20,7 @@ function send(str)
 engine.onmessage = function (line)
 {
     var match;
-    console.log("Line: " + line)
+    //console.log("Line: " + line)
     
     if (typeof line !== "string") {
         console.log("Got line:");
@@ -44,11 +44,11 @@ engine.onmessage = function (line)
         setTimeout(function ()
         {
             send("stop");
-        }, 1000 * 5);
+        }, 1000 * 1);
     } else if (line.indexOf("bestmove") > -1) {
         match = line.match(/bestmove\s+(\S+)/);
         if (match) {
-            console.log("Best move: " + match[1]);
+            //console.log("Best move: " + match[1]);
             best_move = match[1];
             callback(best_move);
             //process.exit();
