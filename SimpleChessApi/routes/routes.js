@@ -16,16 +16,6 @@ function send(str)
     }
 }
 
-/*if (process.argv[2] === "--help") {
-    console.log("Usage: node simple_node.js [FEN OR move1 move2 ...moveN]");
-    console.log("");
-    console.log("Examples:");
-    console.log("   node simple_node.js");
-    console.log("   node simple_node.js \"rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2\"");
-    console.log("   node simple_node.js g1f3 e7e5");
-    process.exit();
-}*/
-
 engine.onmessage = function (line)
 {
     var match;
@@ -65,27 +55,6 @@ engine.onmessage = function (line)
     }
 };
 
-/*(function get_position()
-{
-    var i,
-        len,
-        temp_arr;
-    
-    if (process.argv.length > 2) {
-        /// Does it look like FEN?
-        if (process.argv.length === 3 && process.argv[2].indexOf("/") > -1) {
-            position = "fen " + process.argv[2];
-        } else {
-            temp_arr = [];
-            len = process.argv.length;
-            for (i = 2; i <= len; i += 1) {
-                temp_arr[temp_arr.length] = process.argv[i];
-            }
-            position = "startpos moves " + temp_arr.join(" ");
-        }
-    }
-}());*/
-
 var appRouter = function(app) {
 	app.get("/", function(req, res) {
 		res.send("Hello World");
@@ -115,9 +84,7 @@ var appRouter = function(app) {
 	    	send("uci");
 	    	callback = function(move){
 	    		res.send(move);
-	    		res.end();
 	    	}
-	        //return res.send(best_move);
 	    }
 	});
 }

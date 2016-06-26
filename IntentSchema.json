@@ -39,6 +39,10 @@
         {
           "name": "SourceFile",
           "type": "LIST_OF_FILES"
+        },
+        {
+            "name": "Action",
+            "type": "LIST_OF_ACTIONS"
         }
       ]
     },
@@ -64,6 +68,31 @@
         {
           "name": "SourceRank",
           "type": "LIST_OF_RANKS"
+        },
+        {
+            "name": "Action",
+            "type": "LIST_OF_ACTIONS"
+        }
+      ]
+    },
+    {
+      "intent": "PlayMovePromotion",
+      "slots": [
+        {
+          "name": "File",
+          "type": "LIST_OF_FILES"
+        },
+        {
+          "name": "Rank",
+          "type": "LIST_OF_RANKS"
+        },
+        {
+          "name": "SourceFile",
+          "type": "LIST_OF_FILES"
+        },
+        {
+            "name": "Action",
+            "type": "LIST_OF_ACTIONS"
         }
       ]
     },

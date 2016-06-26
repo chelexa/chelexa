@@ -2,6 +2,7 @@
 PlayMove {Piece} {Action} {File} {Rank}
 PlayMove play {Piece} {Action} {File} {Rank}
 PlayMove {Piece} {File} {Rank}
+PlayMove play {Piece} {File} {Rank}
 
 # Pawn moves
 PlayMove {File} {Rank}
@@ -22,10 +23,10 @@ PlayMoveSpecifySquare {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
 PlayMoveSpecifySquare play {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
 
 # Pawn promotions
-PlayMove {File} promotes to {Promotion}
-PlayMove play {File} promotes to {Promotion}
-PlayMove {File} {Action} {File} {Rank} promotes to {Promotion}
-PlayMove play {File} {Action} {File} {Rank} promotes to {Promotion}
+PlayMovePromotion {File} promotes to {Promotion}
+PlayMovePromotion play {File} promotes to {Promotion}
+PlayMovePromotion {SourceFile} {Action} {File} {Rank} promotes to {Promotion}
+PlayMovePromotion play {SourceFile} {Action} {File} {Rank} promotes to {Promotion}
 
 PlayCastle play {Castle}
 PlayCastle {Castle}
