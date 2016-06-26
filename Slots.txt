@@ -29,6 +29,11 @@ LIST_OF_RANKS
 8
 
 LIST_OF_PIECES
+R
+B
+Q
+N
+K
 rook
 bishop
 knight
