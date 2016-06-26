@@ -89,7 +89,8 @@ var appRouter = function(app) {
 	    	send("uci");
 	    	callback = function(move){
                 var status = pos.move(move, {sloppy: true});
-	    		res.send({"status": status !== null ? "success" : "error", "fen": pos.fen(), "move": move});
+
+	    		res.send({"status": status !== null ? "success" : "error", "fen": pos.fen(), "move": status.san});
                 got_uci = false;
                 started_thinking = false;
 	    	}
