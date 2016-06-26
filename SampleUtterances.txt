@@ -17,10 +17,10 @@ PlayMoveSpecifyFile {Piece} {SourceFile} {Action} {File} {Rank}
 PlayMoveSpecifyFile play {Piece} {SourceFile} {Action} {File} {Rank}
 
 # Piece extra hard moves
-PlayMoveSpecifySquare {Piece} {SourceFile} {SourceRank} {File} {Rank}
-PlayMoveSpecifySquare play {Piece} {SourceFile} {SourceRank} {File} {Rank}
-PlayMoveSpecifySquare {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
-PlayMoveSpecifySquare play {Piece} {SourceFile} {SourceRank} {Action} {File} {Rank}
+PlayMoveSpecifyRank {Piece} {SourceRank} {File} {Rank}
+PlayMoveSpecifyRank play {Piece} {SourceRank} {File} {Rank}
+PlayMoveSpecifyRank {Piece} {SourceRank} {Action} {File} {Rank}
+PlayMoveSpecifyRank play {Piece} {SourceRank} {Action} {File} {Rank}
 
 # Pawn promotions
 PlayMovePromotion {File} promotes to {Promotion}
