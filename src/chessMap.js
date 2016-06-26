@@ -3,8 +3,8 @@ var chessMap = chessMap || {};
 chessMap.pieceMap = {
   "rook" : "R",
   "bishop" : "B",
-  "knight" : "Q",
-  "queen" : "N",
+  "knight" : "N",
+  "queen" : "Q",
   "king" : "K",
   "pawn" : ""
 };

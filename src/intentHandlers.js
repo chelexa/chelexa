@@ -42,9 +42,9 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     var piece = intent.slots.Piece.value,
         file = intent.slots.File.value,
         rank = intent.slots.Rank.value,
-        sourceFile = intent.slots.SourceFile.value,
-        sourceRank = intent.slots.SourceRank.value,
-        action = intent.slots.Action.value,
+        sourceFile = intent.slots.SourceFile.value == undefined ? "" : intents.slots.SourceFile.value,
+        sourceRank = intent.slots.SourceRank.value == undefined ? "" : intents.slots.SourceRank.value,
+        action = intent.slots.Action.value == undefined ? "" : intents.slots.Action.value,
         move;
 
         console.log(map.pieceMap);
