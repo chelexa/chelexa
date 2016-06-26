@@ -50,26 +50,28 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     // formatting our response
     move = piece + sourceFile + sourceRank + action + file + rank
 
-    if ( versusAI ) {
-      //TODO: fill this shit out
-      jquery.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
-        console.log( data );
-        if (data.status !== "error"){
-            currentGame.data.fen = data.fen;
-            currentGame.data.lastMove = data.move;
-            storage.save( function () {
-              //TODO: maybe indicate color of next move here
-              response.ask('computer move ' + data.move);
-            });
-        } else {
-          //handle error
-          response.ask('sorry, not a valid move, please choose again');
-          return;
-        }
-      });
-    } else {
-      //response = // TODO - Call Tyler here
-    }
+    storage.loadGame(session, function (currentGame) {
+      if ( versusAI ) {
+        //TODO: fill this shit out
+        jquery.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
+          console.log( data );
+          if (data.status !== "error"){
+              currentGame.data.fen = data.fen;
+              currentGame.data.lastMove = data.move;
+              storage.save( function () {
+                //TODO: maybe indicate color of next move here
+                response.ask('computer move ' + data.move);
+              });
+          } else {
+            //handle error
+            response.ask('sorry, not a valid move, please choose again');
+            return;
+          }
+        });
+      } else {
+        //response = // TODO - Call Tyler here
+      }
+    });
   };
 };
 exports.register = registerIntentHandlers;
