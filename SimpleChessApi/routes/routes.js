@@ -12,9 +12,6 @@ function send(str)
 {
     //console.log("Sending: " + str)
     engine.postMessage(str);
-    if (str === "stop"){
-    	console.log("Best move: " + best_move);
-    }
 }
 
 engine.onmessage = function (line)
@@ -50,6 +47,8 @@ engine.onmessage = function (line)
         if (match) {
             //console.log("Best move: " + match[1]);
             best_move = match[1];
+            console.log("Best move " + best_move);
+            console.log(typeof best_move)
             callback(best_move);
             //process.exit();
         }
