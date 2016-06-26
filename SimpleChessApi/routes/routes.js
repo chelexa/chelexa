@@ -1,5 +1,5 @@
 var stockfish = require("stockfish");
-var Chess = require("chess.js").Chess;
+var Chess = require("chess").Chess;
 var engine = stockfish();
 var position = "startpos";
 var got_uci;
