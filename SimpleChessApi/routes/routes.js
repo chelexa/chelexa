@@ -1,4 +1,6 @@
 var stockfish = require("stockfish");
+var chess = require("chesslib");
+var FEN = chess.FEN;
 var engine = stockfish();
 var position = "startpos";
 var got_uci;
@@ -77,10 +79,13 @@ var appRouter = function(app) {
 	});
 
     app.get("/move", function(req, res) {
-	    if(!req.query.notation) {
-	        return res.send({"status": "error", "message": "missing username"});
+	    if(!req.query.fen || !req.query.move) {
+	        return res.send({"status": "error", "message": "missing fen or move"});
 	    } else {
-	    	position = "fen " + req.query.notation;
+            var pos = new FEN.parse(req.query.fen);
+            pos = pos.move(req.query.move);
+	    	position = "fen " + FEN.stringify(pos);
+
 	    	send("uci");
 	    	callback = function(move){
 	    		res.send(move);
