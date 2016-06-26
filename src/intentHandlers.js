@@ -39,6 +39,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         action = intent.slots.Action.value,
         move;
 
+        console.log(map.pieceMap);
+
     if (map.pieceMap[piece] !== null) {
         piece = map.pieceMap[piece];
     }
@@ -50,7 +52,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     if ( versusAI ) {
       //TODO: fill this shit out
-      $.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
+      jquery.get( chessServer + ":" + chessPort + "/move?", { fen: currentGame.data.fen, move: move}, function( data ) {
         console.log( data );
         if (data.status !== "error"){
             currentGame.data.fen = data.fen;

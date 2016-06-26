@@ -1,4 +1,6 @@
-var pieceMap = {
+var chessMap = chessMap || {};
+
+chessMap.pieceMap = {
   "rook" : "R",
   "bishop" : "B",
   "knight" : "Q",
@@ -8,7 +10,7 @@ var pieceMap = {
 };
 
 
-var actionsMap = {
+chessMap.actionsMap = {
   "to" : "",
   "takes" : "x",
   "captures" : "x",
@@ -17,3 +19,5 @@ var actionsMap = {
   //Null takes care of value null :)
   "null" : ""
 };
+
+module.exports = chessMap;
