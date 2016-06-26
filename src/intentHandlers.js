@@ -53,11 +53,9 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     storage.loadGame(session, function (currentGame) {
       if ( versusAI ) {
         //TODO: fill this shit out
-        http.get( {
-          host: chessServer + ":" + chessPort,
-          path: "\/move?fen=" + currentGame.data.fen + "\&move=" + move
-        }, function( response ) {
-          console.log( response );
+        http.get( "http://" + chessServer + ":" + chessPort + "/move?fen=" + currentGame.data.fen + "&move=" + move,
+        ( response ) => {
+          //console.log( response );
           var str = '';
           var data = '';
           //another chunk of data has been recieved, so append it to `str`
@@ -67,23 +65,25 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
           //the whole response has been recieved, so we just print it out here
           response.on('end', function () {
-            console.log(str);
+            //console.log(str);
             // Data reception is done, do whatever with it!
             data = JSON.parse(str);
-          });
 
-          if (data.status !== "error"){
+            if (data.status !== "error"){
               currentGame.data.fen = data.fen;
               currentGame.data.lastMove = data.move;
               storage.save( function () {
                 //TODO: maybe indicate color of next move here
                 response.ask('computer move ' + data.move);
               });
-          } else {
-            //handle error
-            response.ask('sorry, not a valid move, please choose again');
-            return;
-          }
+            } else {
+              //handle error
+              response.ask('sorry, not a valid move, please choose again');
+              return;
+            }
+          });
+
+          response.resume();
         });
       } else {
         //response = // TODO - Call Tyler here
