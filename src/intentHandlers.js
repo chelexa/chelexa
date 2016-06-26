@@ -1,7 +1,7 @@
 'use strict';
 var storage = require('./storage'),
     map = require('./chessMap'),
-    require('./jQuery');
+    jquery = require('./jQuery');
 
 var chessServer = "54.152.13.83",
     chessPort = 8000;

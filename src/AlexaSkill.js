@@ -117,7 +117,7 @@ Response.prototype = (function () {
   */
 
     var returnResult = {
-      version: '1.0'
+      version: '1.0',
       response: alexaResponse
     };
 
@@ -149,7 +149,7 @@ Response.prototype = (function () {
         shouldEndSession: false
       }));
     },
-    askWithCard: function (speechOutput, repromptSpeech, cardTitle, cardContent)
+    askWithCard: function (speechOutput, repromptSpeech, cardTitle, cardContent) {
       this._context.succeed(buildSpeechletResponse({
         session: this._session,
         output: speechOutput,
@@ -158,6 +158,7 @@ Response.prototype = (function () {
         cardContent: cardContent,
         shouldEndSession: false
       }));
+    }
   };
 })();
 
