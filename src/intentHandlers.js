@@ -55,7 +55,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         //TODO: fill this shit out
         http.get( {
           host: chessServer + ":" + chessPort,
-          path: "/move?fen=" + currentGame.data.fen + "&move=" + move
+          path: "\/move?fen=" + currentGame.data.fen + "\&move=" + move
         }, function( response ) {
           console.log( response );
           var str = '';
